@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>BitBlue</title>
+
+
+<link rel="icon" href="img/logofish.ico" type="image/x-icon"/>
+<link href="css/new.css" rel="stylesheet" type="text/css">
+<link href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="css/BitBlueCSS.css" rel="stylesheet" type="text/css">
+<link href="css/2jmie_font.css" rel="stylesheet" type="text/css"><!--字体-->
+<link href="css/txt.wav.css" rel="stylesheet" type="text/css"><!--标题波动-->
+<link rel="stylesheet" href="css/earth.css" media="screen" type="text/css" /><!--地球热点弹窗-->
+<link href="css/p3-perspectiveRules.css" rel="stylesheet" /><!--视差-->
+
+<!--<link rel="stylesheet" href="css/kissui.css">
+<link rel="stylesheet" href="css/scrollanim.min.css">
+<link rel="stylesheet" href="css/aos.css" />
+<script src="js/aos.js"></script>
+<script src="js/scrollanim.min.js"></script>-->
+<link href="css/animate.min.css" rel="stylesheet" type="text/css"><!--响应动画库-->
+
+<script type="text/javascript" src="js/jquery.min.js"></script><!--泡泡-->
+<script type="text/javascript" src="js/bitblue.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script><!--dian-->
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script><!--dian-->
+<script type="text/javascript" src="js/message.js"></script><!--提示插件-->
+<script src="js/prefixfree.min.js"></script><!--粒-->
+<script src="js/modernizr.js" type="text/javascript"></script><!--子-->
+
+<script language="javascript">
+ function f1(){location="BitBlue.html";}
+ 
+ function AddFavorite(sURL, sTitle)
+    {
+      var sTitle='';
+      var sURL=location.href;
+      if (window.sidebar) return true;
+        try{
+            window.external.addFavorite(sURL, sTitle);
+        }catch(e){
+            alert( "收藏失败了呢，请使用Ctrl+D进行添加" );
+        }
+         return false;
+}
+
+/*$(document).ready(function() {
+
+	$.fn.fullpage({
+
+		
+
+		afterLoad: function(anchorLink, index){
+
+			if(index == 2){
+
+				$('.section2').find('p').delay(500).animate({
+
+					left: '0'
+
+				}, 1500, 'easeOutExpo');
+
+			}
+
+			if(index == 3){
+
+				$('.section3').find('p').delay(500).animate({
+
+					bottom: '0'
+
+				}, 1500, 'easeOutExpo');
+
+			}
+
+			if(index == 4){
+
+				$('.section4').find('p').fadeIn(2000);
+
+			}
+
+		},
+
+		onLeave: function(index, direction){
+
+			if(index == '2'){
+
+				$('.section2').find('p').delay(500).animate({
+
+					left: '-120%'
+
+				}, 1500, 'easeOutExpo');
+
+			}
+
+			if(index == '3'){
+
+				$('.section3').find('p').delay(500).animate({
+
+					bottom: '-120%'
+
+				}, 1500, 'easeOutExpo');
+
+			}
+
+			if(index == '4'){
+
+				$('.section4').find('p').fadeOut(2000);
+
+			}
+
+		}
+
+	});
+
+});
+*/
+
+</script><!--首页-->
+
+
+<script type="text/javascript">
+$(function() {
+  var nowpage=0;
+  var lock=true;
+  function donghua(){
+    $('.containter').animate({'top': -100*nowpage+'%'}, 500);
+    $('.page').eq(nowpage).addClass('current').siblings().removeClass('current');
+    $('.dian ul li').eq(nowpage).addClass('da').siblings().removeClass('da');
+    $('.nav ul li').eq(nowpage).addClass('bg').siblings().removeClass('bg');
+  }
+  $(document).mousewheel(function (event,delta) {
+    if(lock){ 
+      nowpage=nowpage-delta;
+      if(nowpage<0){nowpage=0;}
+      if(nowpage>4){nowpage=4;}
+       donghua();
+      lock=false;
+      setTimeout(function  () {
+        // body...
+        lock=true;
+      },1000);
+    }
+  })
+  $('.nav ul li').click(function(event) {
+    nowpage=$(this).index();
+    if(nowpage<=4){donghua();}
+  });
+  $('.dian ul li').click(function(event) {
+    nowpage=$(this).index();
+    donghua();
+  });
+});
+</script>
+
+<style>
+
+#stars1 {
+  width: 2px;
+  height: 2px;
+  z-index:2;
+  background: transparent;
+  box-shadow: 921px 1554px #9ceaf8 , 1944px 550px #9ceaf8 , 1696px 1632px #9ceaf8 , 16px 1899px #9ceaf8 , 1894px 130px #9ceaf8 , 77px 262px #9ceaf8 , 22px 1159px #9ceaf8 , 933px 1206px #9ceaf8 , 1660px 482px #9ceaf8 , 1067px 1154px #9ceaf8 , 468px 625px #9ceaf8 , 1408px 1687px #9ceaf8 , 153px 1200px #9ceaf8 , 887px 1966px #9ceaf8 , 1260px 514px #9ceaf8 , 1167px 1158px #9ceaf8 , 790px 553px #9ceaf8 , 1103px 758px #9ceaf8 , 226px 1028px #9ceaf8 , 1340px 1760px #9ceaf8 , 1712px 528px #9ceaf8 , 114px 1693px #9ceaf8 , 185px 572px #9ceaf8 , 1566px 1793px #9ceaf8 , 317px 1501px #9ceaf8 , 846px 530px #9ceaf8 , 1585px 1437px #9ceaf8 , 1335px 1009px #9ceaf8 , 1768px 436px #9ceaf8 , 1131px 666px #9ceaf8 , 27px 1543px #9ceaf8 , 1778px 1861px #9ceaf8 , 1496px 30px #9ceaf8 , 1359px 1226px #9ceaf8 , 416px 135px #9ceaf8 , 1675px 673px #9ceaf8 , 296px 524px #9ceaf8 , 432px 1822px #9ceaf8 , 1995px 416px #9ceaf8 , 1206px 1846px #9ceaf8 , 542px 603px #9ceaf8 , 1811px 1083px #9ceaf8 , 1125px 1900px #9ceaf8 , 4px 1410px #9ceaf8 , 665px 1674px #9ceaf8 , 982px 365px #9ceaf8 , 809px 534px #9ceaf8 , 116px 1381px #9ceaf8 , 727px 439px #9ceaf8 , 1674px 1407px #9ceaf8 , 976px 1762px #9ceaf8 , 1585px 28px #9ceaf8 , 1916px 624px #9ceaf8 , 1716px 1118px #9ceaf8 , 1022px 177px #9ceaf8 , 807px 619px #9ceaf8 , 1657px 338px #9ceaf8 , 1608px 1259px #9ceaf8 , 405px 1890px #9ceaf8 , 433px 1978px #9ceaf8 , 1457px 1495px #9ceaf8 , 175px 989px #9ceaf8 , 850px 1044px #9ceaf8 , 170px 444px #9ceaf8 , 1623px 71px #9ceaf8 , 977px 1319px #9ceaf8 , 440px 464px #9ceaf8 , 51px 1209px #9ceaf8 , 783px 1274px #9ceaf8 , 1296px 244px #9ceaf8 , 1260px 94px #9ceaf8 , 652px 905px #9ceaf8 , 805px 1307px #9ceaf8 , 947px 822px #9ceaf8 , 384px 268px #9ceaf8 , 1856px 1782px #9ceaf8 , 459px 1844px #9ceaf8 , 1679px 473px #9ceaf8 , 673px 1832px #9ceaf8 , 96px 345px #9ceaf8 , 1268px 428px #9ceaf8 , 788px 1138px #9ceaf8 , 1242px 867px #9ceaf8 , 652px 831px #9ceaf8 , 993px 1706px #9ceaf8 , 1337px 64px #9ceaf8 , 1092px 624px #9ceaf8 , 674px 1344px #9ceaf8 , 1036px 405px #9ceaf8 , 996px 1371px #9ceaf8 , 1906px 1410px #9ceaf8 , 1285px 1079px #9ceaf8 , 1756px 583px #9ceaf8 , 404px 380px #9ceaf8 , 1739px 1620px #9ceaf8 , 1253px 372px #9ceaf8 , 520px 620px #9ceaf8 , 1842px 852px #9ceaf8 , 490px 387px #9ceaf8 , 1251px 143px #9ceaf8 , 1814px 537px #9ceaf8 , 1405px 623px #9ceaf8 , 1236px 1186px #9ceaf8 , 1286px 896px #9ceaf8 , 1626px 990px #9ceaf8 , 31px 1067px #9ceaf8 , 1288px 939px #9ceaf8 , 763px 338px #9ceaf8 , 713px 1515px #9ceaf8 , 859px 1621px #9ceaf8 , 1720px 1984px #9ceaf8 , 796px 1743px #9ceaf8 , 1439px 1587px #9ceaf8 , 965px 412px #9ceaf8 , 775px 1168px #9ceaf8 , 1192px 956px #9ceaf8 , 368px 1075px #9ceaf8 , 1484px 1154px #9ceaf8 , 1784px 547px #9ceaf8 , 815px 675px #9ceaf8 , 1387px 890px #9ceaf8 , 1665px 1733px #9ceaf8 , 1948px 429px #9ceaf8 , 1665px 92px #9ceaf8 , 1806px 919px #9ceaf8 , 1712px 494px #9ceaf8 , 577px 1922px #9ceaf8 , 820px 1228px #9ceaf8 , 678px 1745px #9ceaf8 , 1421px 586px #9ceaf8 , 788px 208px #9ceaf8 , 380px 250px #9ceaf8 , 748px 977px #9ceaf8 , 1637px 337px #9ceaf8 , 851px 1514px #9ceaf8 , 1487px 1410px #9ceaf8 , 1776px 710px #9ceaf8 , 544px 453px #9ceaf8 , 1707px 1932px #9ceaf8 , 1121px 1642px #9ceaf8 , 1227px 391px #9ceaf8 , 583px 833px #9ceaf8 , 658px 278px #9ceaf8 , 345px 1388px #9ceaf8 , 1529px 1419px #9ceaf8 , 233px 1008px #9ceaf8 , 892px 943px #9ceaf8 , 1431px 1091px #9ceaf8 , 1524px 316px #9ceaf8 , 1547px 192px #9ceaf8 , 976px 36px #9ceaf8 , 1648px 1053px #9ceaf8 , 1833px 1572px #9ceaf8 , 1677px 936px #9ceaf8 , 589px 1755px #9ceaf8 , 978px 1875px #9ceaf8 , 1508px 412px #9ceaf8 , 1242px 439px #9ceaf8 , 1263px 40px #9ceaf8 , 1427px 1736px #9ceaf8 , 639px 906px #9ceaf8 , 1349px 373px #9ceaf8 , 1055px 969px #9ceaf8 , 602px 95px #9ceaf8 , 224px 1805px #9ceaf8 , 1129px 837px #9ceaf8 , 1110px 1358px #9ceaf8 , 1067px 1752px #9ceaf8 , 391px 1389px #9ceaf8 , 885px 1979px #9ceaf8 , 1188px 414px #9ceaf8 , 1931px 325px #9ceaf8 , 1853px 1918px #9ceaf8 , 636px 1313px #9ceaf8 , 1236px 1913px #9ceaf8 , 1801px 780px #9ceaf8 , 633px 529px #9ceaf8 , 1500px 33px #9ceaf8 , 1387px 1045px #9ceaf8 , 832px 1281px #9ceaf8 , 1880px 1845px #9ceaf8 , 1477px 1096px #9ceaf8 , 1457px 698px #9ceaf8 , 1658px 1049px #9ceaf8 , 1957px 1151px #9ceaf8 , 1561px 1593px #9ceaf8 , 627px 250px #9ceaf8 , 975px 1575px #9ceaf8 , 68px 998px #9ceaf8 , 951px 85px #9ceaf8 , 280px 431px #9ceaf8 , 1683px 1745px #9ceaf8 , 322px 778px #9ceaf8 , 841px 888px #9ceaf8 , 1895px 1883px #9ceaf8 , 700px 568px #9ceaf8 , 1846px 442px #9ceaf8 , 91px 1650px #9ceaf8 , 970px 917px #9ceaf8 , 1585px 452px #9ceaf8;
+  animation: animStar 100s linear infinite;
+}
+#stars1:after {
+  content: " ";
+  position: absolute;
+  z-index:2;
+  top: 2000px;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 921px 1554px #9ceaf8 , 1944px 550px #9ceaf8 , 1696px 1632px #9ceaf8 , 16px 1899px #9ceaf8 , 1894px 130px #9ceaf8 , 77px 262px #9ceaf8 , 22px 1159px #9ceaf8 , 933px 1206px #9ceaf8 , 1660px 482px #9ceaf8 , 1067px 1154px #9ceaf8 , 468px 625px #9ceaf8 , 1408px 1687px #9ceaf8 , 153px 1200px #9ceaf8 , 887px 1966px #9ceaf8 , 1260px 514px #9ceaf8 , 1167px 1158px #9ceaf8 , 790px 553px #9ceaf8 , 1103px 758px #9ceaf8 , 226px 1028px #9ceaf8 , 1340px 1760px #9ceaf8 , 1712px 528px #9ceaf8 , 114px 1693px #9ceaf8 , 185px 572px #9ceaf8 , 1566px 1793px #9ceaf8 , 317px 1501px #9ceaf8 , 846px 530px #9ceaf8 , 1585px 1437px #9ceaf8 , 1335px 1009px #9ceaf8 , 1768px 436px #9ceaf8 , 1131px 666px #9ceaf8 , 27px 1543px #9ceaf8 , 1778px 1861px #9ceaf8 , 1496px 30px #9ceaf8 , 1359px 1226px #9ceaf8 , 416px 135px #9ceaf8 , 1675px 673px #9ceaf8 , 296px 524px #9ceaf8 , 432px 1822px #9ceaf8 , 1995px 416px #9ceaf8 , 1206px 1846px #9ceaf8 , 542px 603px #9ceaf8 , 1811px 1083px #9ceaf8 , 1125px 1900px #9ceaf8 , 4px 1410px #9ceaf8 , 665px 1674px #9ceaf8 , 982px 365px #9ceaf8 , 809px 534px #9ceaf8 , 116px 1381px #9ceaf8 , 727px 439px #9ceaf8 , 1674px 1407px #9ceaf8 , 976px 1762px #9ceaf8 , 1585px 28px #9ceaf8 , 1916px 624px #9ceaf8 , 1716px 1118px #9ceaf8 , 1022px 177px #9ceaf8 , 807px 619px #9ceaf8 , 1657px 338px #9ceaf8 , 1608px 1259px #9ceaf8 , 405px 1890px #9ceaf8 , 433px 1978px #9ceaf8 , 1457px 1495px #9ceaf8 , 175px 989px #9ceaf8 , 850px 1044px #9ceaf8 , 170px 444px #9ceaf8 , 1623px 71px #9ceaf8 , 977px 1319px #9ceaf8 , 440px 464px #9ceaf8 , 51px 1209px #9ceaf8 , 783px 1274px #9ceaf8 , 1296px 244px #9ceaf8 , 1260px 94px #9ceaf8 , 652px 905px #9ceaf8 , 805px 1307px #9ceaf8 , 947px 822px #9ceaf8 , 384px 268px #9ceaf8 , 1856px 1782px #9ceaf8 , 459px 1844px #9ceaf8 , 1679px 473px #9ceaf8 , 673px 1832px #9ceaf8 , 96px 345px #9ceaf8 , 1268px 428px #9ceaf8 , 788px 1138px #9ceaf8 , 1242px 867px #9ceaf8 , 652px 831px #9ceaf8 , 993px 1706px #9ceaf8 , 1337px 64px #9ceaf8 , 1092px 624px #9ceaf8 , 674px 1344px #9ceaf8 , 1036px 405px #9ceaf8 , 996px 1371px #9ceaf8 , 1906px 1410px #9ceaf8 , 1285px 1079px #9ceaf8 , 1756px 583px #9ceaf8 , 404px 380px #9ceaf8 , 1739px 1620px #9ceaf8 , 1253px 372px #9ceaf8 , 520px 620px #9ceaf8 , 1842px 852px #9ceaf8 , 490px 387px #9ceaf8 , 1251px 143px #9ceaf8 , 1814px 537px #9ceaf8 , 1405px 623px #9ceaf8 , 1236px 1186px #9ceaf8 , 1286px 896px #9ceaf8 , 1626px 990px #9ceaf8 , 31px 1067px #9ceaf8 , 1288px 939px #9ceaf8 , 763px 338px #9ceaf8 , 713px 1515px #9ceaf8 , 859px 1621px #9ceaf8 , 1720px 1984px #9ceaf8 , 796px 1743px #9ceaf8 , 1439px 1587px #9ceaf8 , 965px 412px #9ceaf8 , 775px 1168px #9ceaf8 , 1192px 956px #9ceaf8 , 368px 1075px #9ceaf8 , 1484px 1154px #9ceaf8 , 1784px 547px #9ceaf8 , 815px 675px #9ceaf8 , 1387px 890px #9ceaf8 , 1665px 1733px #9ceaf8 , 1948px 429px #9ceaf8 , 1665px 92px #9ceaf8 , 1806px 919px #9ceaf8 , 1712px 494px #9ceaf8 , 577px 1922px #9ceaf8 , 820px 1228px #9ceaf8 , 678px 1745px #9ceaf8 , 1421px 586px #9ceaf8 , 788px 208px #9ceaf8 , 380px 250px #9ceaf8 , 748px 977px #9ceaf8 , 1637px 337px #9ceaf8 , 851px 1514px #9ceaf8 , 1487px 1410px #9ceaf8 , 1776px 710px #9ceaf8 , 544px 453px #9ceaf8 , 1707px 1932px #9ceaf8 , 1121px 1642px #9ceaf8 , 1227px 391px #9ceaf8 , 583px 833px #9ceaf8 , 658px 278px #9ceaf8 , 345px 1388px #9ceaf8 , 1529px 1419px #9ceaf8 , 233px 1008px #9ceaf8 , 892px 943px #9ceaf8 , 1431px 1091px #9ceaf8 , 1524px 316px #9ceaf8 , 1547px 192px #9ceaf8 , 976px 36px #9ceaf8 , 1648px 1053px #9ceaf8 , 1833px 1572px #9ceaf8 , 1677px 936px #9ceaf8 , 589px 1755px #9ceaf8 , 978px 1875px #9ceaf8 , 1508px 412px #9ceaf8 , 1242px 439px #9ceaf8 , 1263px 40px #9ceaf8 , 1427px 1736px #9ceaf8 , 639px 906px #9ceaf8 , 1349px 373px #9ceaf8 , 1055px 969px #9ceaf8 , 602px 95px #9ceaf8 , 224px 1805px #9ceaf8 , 1129px 837px #9ceaf8 , 1110px 1358px #9ceaf8 , 1067px 1752px #9ceaf8 , 391px 1389px #9ceaf8 , 885px 1979px #9ceaf8 , 1188px 414px #9ceaf8 , 1931px 325px #9ceaf8 , 1853px 1918px #9ceaf8 , 636px 1313px #9ceaf8 , 1236px 1913px #9ceaf8 , 1801px 780px #9ceaf8 , 633px 529px #9ceaf8 , 1500px 33px #9ceaf8 , 1387px 1045px #9ceaf8 , 832px 1281px #9ceaf8 , 1880px 1845px #9ceaf8 , 1477px 1096px #9ceaf8 , 1457px 698px #9ceaf8 , 1658px 1049px #9ceaf8 , 1957px 1151px #9ceaf8 , 1561px 1593px #9ceaf8 , 627px 250px #9ceaf8 , 975px 1575px #9ceaf8 , 68px 998px #9ceaf8 , 951px 85px #9ceaf8 , 280px 431px #9ceaf8 , 1683px 1745px #9ceaf8 , 322px 778px #9ceaf8 , 841px 888px #9ceaf8 , 1895px 1883px #9ceaf8 , 700px 568px #9ceaf8 , 1846px 442px #9ceaf8 , 91px 1650px #9ceaf8 , 970px 917px #9ceaf8 , 1585px 452px #9ceaf8;
+}
+
+#stars2 {
+  width: 3.5px;
+  height: 3.5px;
+  z-index:2;
+  background: transparent;
+  box-shadow: 1679px 1408px #9ceaf8 , 1970px 1504px #9ceaf8 , 1789px 965px #9ceaf8 , 698px 234px #9ceaf8 , 1733px 1854px #9ceaf8 , 1060px 271px #9ceaf8 , 719px 1744px #9ceaf8 , 1707px 1847px #9ceaf8 , 1710px 432px #9ceaf8 , 1325px 1585px #9ceaf8 , 92px 577px #9ceaf8 , 163px 1938px #9ceaf8 , 1885px 123px #9ceaf8 , 1566px 1753px #9ceaf8 , 1288px 21px #9ceaf8 , 1396px 1908px #9ceaf8 , 675px 1466px #9ceaf8 , 734px 1557px #9ceaf8 , 941px 1885px #9ceaf8 , 1692px 6px #9ceaf8 , 115px 1183px #9ceaf8 , 639px 1044px #9ceaf8 , 1171px 1982px #9ceaf8 , 1801px 1078px #9ceaf8 , 648px 820px #9ceaf8 , 1885px 1984px #9ceaf8 , 268px 1729px #9ceaf8 , 1388px 181px #9ceaf8 , 1741px 1280px #9ceaf8 , 1719px 1080px #9ceaf8 , 12px 932px #9ceaf8 , 489px 157px #9ceaf8 , 1910px 790px #9ceaf8 , 115px 44px #9ceaf8 , 1748px 1458px #9ceaf8 , 282px 109px #9ceaf8 , 1100px 1528px #9ceaf8 , 543px 598px #9ceaf8 , 1320px 1188px #9ceaf8 , 1124px 839px #9ceaf8 , 1406px 1289px #9ceaf8 , 472px 1376px #9ceaf8 , 852px 286px #9ceaf8 , 510px 860px #9ceaf8 , 700px 306px #9ceaf8 , 1822px 1302px #9ceaf8 , 15px 19px #9ceaf8 , 1360px 420px #9ceaf8 , 1483px 42px #9ceaf8 , 1287px 1867px #9ceaf8 , 1105px 1322px #9ceaf8 , 745px 161px #9ceaf8 , 431px 1722px #9ceaf8 , 855px 1254px #9ceaf8 , 860px 1784px #9ceaf8 , 1578px 1955px #9ceaf8 , 1085px 461px #9ceaf8 , 472px 690px #9ceaf8 , 23px 1152px #9ceaf8 , 1625px 601px #9ceaf8 , 1177px 1692px #9ceaf8 , 397px 1984px #9ceaf8 , 10px 1164px #9ceaf8 , 1132px 1557px #9ceaf8 , 438px 817px #9ceaf8 , 1590px 1236px #9ceaf8 , 1037px 1616px #9ceaf8 , 533px 941px #9ceaf8 , 1163px 1992px #9ceaf8 , 1451px 1081px #9ceaf8 , 1335px 1578px #9ceaf8 , 503px 1556px #9ceaf8 , 197px 1725px #9ceaf8 , 511px 1397px #9ceaf8 , 1514px 1164px #9ceaf8 , 1249px 148px #9ceaf8 , 947px 1849px #9ceaf8 , 1258px 1426px #9ceaf8 , 255px 1937px #9ceaf8 , 23px 529px #9ceaf8 , 578px 230px #9ceaf8 , 925px 767px #9ceaf8 , 903px 365px #9ceaf8 , 1861px 451px #9ceaf8 , 1813px 912px #9ceaf8 , 1597px 637px #9ceaf8 , 195px 626px #9ceaf8 , 130px 404px #9ceaf8 , 725px 408px #9ceaf8 , 1916px 843px #9ceaf8 , 1336px 239px #9ceaf8 , 1568px 1390px #9ceaf8 , 139px 126px #9ceaf8 , 1287px 1271px #9ceaf8 , 731px 465px #9ceaf8 , 1959px 1465px #9ceaf8 , 909px 169px #9ceaf8 , 838px 1332px #9ceaf8 , 464px 1037px #9ceaf8 , 1893px 233px #9ceaf8;
+  animation: animStar 150s linear infinite;
+}
+#stars2:after {
+  content: " ";
+  position: absolute;
+  z-index:2;
+  top: 2000px;
+  width: 3.5px;
+  height: 3.5px;
+  background: transparent;
+  box-shadow: 1679px 1408px #9ceaf8 , 1970px 1504px #9ceaf8 , 1789px 965px #9ceaf8 , 698px 234px #9ceaf8 , 1733px 1854px #9ceaf8 , 1060px 271px #9ceaf8 , 719px 1744px #9ceaf8 , 1707px 1847px #9ceaf8 , 1710px 432px #9ceaf8 , 1325px 1585px #9ceaf8 , 92px 577px #9ceaf8 , 163px 1938px #9ceaf8 , 1885px 123px #9ceaf8 , 1566px 1753px #9ceaf8 , 1288px 21px #9ceaf8 , 1396px 1908px #9ceaf8 , 675px 1466px #9ceaf8 , 734px 1557px #9ceaf8 , 941px 1885px #9ceaf8 , 1692px 6px #9ceaf8 , 115px 1183px #9ceaf8 , 639px 1044px #9ceaf8 , 1171px 1982px #9ceaf8 , 1801px 1078px #9ceaf8 , 648px 820px #9ceaf8 , 1885px 1984px #9ceaf8 , 268px 1729px #9ceaf8 , 1388px 181px #9ceaf8 , 1741px 1280px #9ceaf8 , 1719px 1080px #9ceaf8 , 12px 932px #9ceaf8 , 489px 157px #9ceaf8 , 1910px 790px #9ceaf8 , 115px 44px #9ceaf8 , 1748px 1458px #9ceaf8 , 282px 109px #9ceaf8 , 1100px 1528px #9ceaf8 , 543px 598px #9ceaf8 , 1320px 1188px #9ceaf8 , 1124px 839px #9ceaf8 , 1406px 1289px #9ceaf8 , 472px 1376px #9ceaf8 , 852px 286px #9ceaf8 , 510px 860px #9ceaf8 , 700px 306px #9ceaf8 , 1822px 1302px #9ceaf8 , 15px 19px #9ceaf8 , 1360px 420px #9ceaf8 , 1483px 42px #9ceaf8 , 1287px 1867px #9ceaf8 , 1105px 1322px #9ceaf8 , 745px 161px #9ceaf8 , 431px 1722px #9ceaf8 , 855px 1254px #9ceaf8 , 860px 1784px #9ceaf8 , 1578px 1955px #9ceaf8 , 1085px 461px #9ceaf8 , 472px 690px #9ceaf8 , 23px 1152px #9ceaf8 , 1625px 601px #9ceaf8 , 1177px 1692px #9ceaf8 , 397px 1984px #9ceaf8 , 10px 1164px #9ceaf8 , 1132px 1557px #9ceaf8 , 438px 817px #9ceaf8 , 1590px 1236px #9ceaf8 , 1037px 1616px #9ceaf8 , 533px 941px #9ceaf8 , 1163px 1992px #9ceaf8 , 1451px 1081px #9ceaf8 , 1335px 1578px #9ceaf8 , 503px 1556px #9ceaf8 , 197px 1725px #9ceaf8 , 511px 1397px #9ceaf8 , 1514px 1164px #9ceaf8 , 1249px 148px #9ceaf8 , 947px 1849px #9ceaf8 , 1258px 1426px #9ceaf8 , 255px 1937px #9ceaf8 , 23px 529px #9ceaf8 , 578px 230px #9ceaf8 , 925px 767px #9ceaf8 , 903px 365px #9ceaf8 , 1861px 451px #9ceaf8 , 1813px 912px #9ceaf8 , 1597px 637px #9ceaf8 , 195px 626px #9ceaf8 , 130px 404px #9ceaf8 , 725px 408px #9ceaf8 , 1916px 843px #9ceaf8 , 1336px 239px #9ceaf8 , 1568px 1390px #9ceaf8 , 139px 126px #9ceaf8 , 1287px 1271px #9ceaf8 , 731px 465px #9ceaf8 , 1959px 1465px #9ceaf8 , 909px 169px #9ceaf8 , 838px 1332px #9ceaf8 , 464px 1037px #9ceaf8 , 1893px 233px #9ceaf8;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-2000px);
+  }
+
+
+</style>
+
+
+</head>
+<body>
+
+<div id="real_header"> 
+<div class="log"><a href="BitBlue.html">
+    <img src="img/logo.png" style="display:block; width:55px; height:55px; border:none;" /><!--<embed src="img/logo.ai" style="display:block; width:55px; height:55px; border:none;"></embed>--></a></div>
+<div id="navi"> 
+ <nav>
+  <ul>
+     <li>
+      <a onClick="f1()"> <font face="FZXSHJW"> BitBlue首页</font></a>
+    </li> 
+    <li>
+      <a href="2jmie_two.html"> <font face="FZXSHJW">濒危海洋生物</font></a>
+    </li>
+    <li>
+      <a href="xin.html"> <font face="FZXSHJW">灭绝海洋生物</font></a>
+    </li>
+    <li>
+      <a href="2j-letter.html"> <font face="FZXSHJW">保护海洋方法</font></a>
+    </li>
+    <li>
+      <a href="about/we r here.html"> <font face="FZXSHJW">海洋保护组织</font></a>
+    </li>
+   <a href="BitBlueEng.html"><img src="img/logoEng.png" style="width:55px; height:55px; 
+		position:fixed;
+		right:4%;
+		z-index:999;		
+		margin:0;
+		padding:0;
+		border:0;
+		opacity:0.7; border:none;" />
+  </ul>
+</nav> 
+</div> 
+</div> 
+
+
+
+<div class="containter">
+
+
+<div class="page current"><a name="Page0"></a>
+
+<h1 class='title'>
+<font face="FZXSHJW">
+<div class="txtwav slow" id="BB" style="cursor:pointer;">BitBlue</div>
+</font>
+</h1>
+
+<canvas id="fizz"></canvas>
+
+</div>
+<div class="page page1"><a name="Page1">
+
+<div id="stars1"></div>
+<div id="stars2"></div>
+<div class="t1_box t1_link">
+
+		<span class="line line_top"></span>
+		<span class="line line_right"></span>
+		<span class="line line_bottom"></span>
+		<span class="line line_left"></span>
+<h1 align="center"><font face="FZXSHJW">濒危海洋生物</font></h1><div style="float: right;
+ width: 80%; height: 30%; position: absolute; z-index: 9; top: 59px; padding-top: 5px; left:10%;">
+<p style=" font-size:17px; margin-top:15px; margin-left:15px; line-height:26px;">
+海洋是古老的。它不仅仅只是一个空间的概念，<br>从现实意义来讲，海洋是具有生命的。<br>
+这份鲜活无时无刻不熠熠流动于她所庇护的生物。<br><br>而如今过度捕捞等人类活动，大量不为人所需的生物被捕获并杀死。<br>
+副渔获物。拦阻网。抛弃物。旅行者们永远无法抵达终点。<br>
+我们应该了解了它们，不是仅仅作为标本或课程，而是与我们共享这颗脆弱星球的芸芸苍生。<br>
+
+</p></div>
+<p style="position:absolute; bottom:5px; left:70%;"><a href="2jmie_two.html">
+<img src="img/按钮5.png" onMouseOver="this.src='img/按钮6.png'" onMouseOut="this.src='img/按钮5.png'" width="90" >
+</a></p>
+
+</div>
+
+
+<a title="Whale"><img src="img/jing.png" id="whale" class="whale" width="600px" style="z-index:1; position:absolute; left:15%;"/></a>
+
+
+
+<a title="Sharkwhale"><img src="img/js.png" id="js" class="blur" width="1000px" style=" z-index:3; position:absolute; bottom:-150px; right:3%;"/></a>
+
+</div>
+
+<div class="page page2"><a name="Page2"></a>
+<div id="stars1"></div>
+<div id="stars2"></div>
+
+
+<div class="t2_box t2_link">
+
+
+		<span class="line line_top"></span>
+		<span class="line line_right"></span>
+		<span class="line line_bottom"></span>
+		<span class="line line_left"></span>
+        
+<h1 align="center"><font face="FZXSHJW">灭绝海洋生物</font></h1>
+<div style="float: right;
+ width: 85%; height: 30%; position: absolute; z-index: 9; top: 59px; padding-top: 5px; left:10%;">
+<p style=" font-size:17px; margin-top:15px; margin-left:15px; line-height:26px;">
+自1500年以来我们记录下的海洋生物灭绝，<br>无一与人类活动有关，<br>人类于海洋方面观测到的十分有限却又十足惊心。<br>当又一个物种消失，地球上又少了一种声音，<br>这微小的一环断掉了，接下来相扣的锁链更加脆弱，<br><br>生物与自然牵成的网愈加破碎，最后我们能抽身而出吗？<br>下一次你还会放开它们的手吗？</p></div>
+<div  style=" position:absolute; top:68%; right:15px; z-index:30;"><a href="xin.html">
+<img src="img/按钮3.png" onMouseOver="this.src='img/按钮4.png'" onMouseOut="this.src='img/按钮3.png'" width="150" >
+</a></div></div>
+<a title="Nautiloidea"><img src="img/ywl.png" id="ywl" width="300px" style="position:absolute; top:100px; left:50%;" class="doudong"/></a>
+
+<a title="Whale fall"><img src="img/gu.png" id="jl" width="1000px" style="position:absolute; bottom:-50px; right:-30px;"/></a>
+
+</div>
+<div class="page page3"><a name="Page3"></a>
+<!--<div class="hua"></div>
+<iframe src="page3.html"></iframe>-->
+
+	<div id="p3"  style="width:100%; height:100%; z-index:2;">
+	    <img alt="background" src="img/seaback.jpg" />
+	    <img alt="stone" src="img/stone.png" />
+	    <div></div>
+	    <img alt="yuqun" src="img/yuqun.png" />
+	    <img alt="shuimu" src="img/shuimu.png" />
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <div></div>
+	    <img alt="chuan" src="img/qianting.png" />
+	</div>
+<div class="shoul" id="shoul">
+<div class="shipin">
+	<video width="400" height="300" controls> 
+		<source src="img/protectsea.mp4" type="video/mp4"> </source>
+	</video>
+</div>
+</div>
+<div class="shour"><!--  id="how"-->
+<div class="xiaoshou">
+<a href="2j-letter.html">
+<img src="img/按钮7.png" onMouseOver="this.src='img/按钮8.png'" onMouseOut="this.src='img/按钮7.png'" width="120px" ></a>
+</div>
+</div>
+</div>
+
+<div class="page page4"><a name="Page4"></a>
+<div class="zhongxin">
+<div class="distribution-map">
+ <button class="map-point" style="top: 320px; left: 340px">
+  <div class="content">
+    <div class="centered-y">
+      <h2><font face="hzydx">蓝丝带海洋保护协会</font></h2>
+      <p><font face="hyxdx"> 
+在三亚成立,是全国首家以海洋环保为主题的民间公益社会团体。<br>工作目标：宣传贯彻海洋环境保护政策法规，提高全民海洋保护意识，建立相关海洋保护举措，促进海洋保护科研。<br>http://www.ch-blueocean.org/
+</font></p>
+    </div>
+  </div>
+  </button>
+   <button class="map-point" style="top: 200px; left: 648px">
+  <div class="content">
+    <div class="centered-y">
+      <h2><font face="hzydx">海洋守护者协会</font></h2>
+      <p><font face="hyxdx">
+专门保护鲸鱼、鲨鱼、海狮、海豹等海洋动物的组织。<br>协会驻扎在美国华盛顿州和澳大利亚墨尔本。海洋守护者参与包括毁坏和用其他方式物理妨碍捕鲸船作业在内的直接行动。<br>https://seashepherd.org/
+</font>
+</p>
+    </div>
+  </div>
+  </button>
+  <button class="map-point" style="top: 270px; left: 670px">
+  <div class="content">
+    <div class="centered-y">
+      <h2><font face="hzydx">OPS海洋保护小组</font></h2>
+      <p><font face="hyxdx">
+是一个非营利组织，创造了电影、摄影和媒体，激发人们保护海洋。<br>致力于保护海豚,鲸类和其他海洋生物,希望每个人从现在开始都做一点改变,来保护海洋环境。<br>
+http://www.opsociety.org/</font>
+</p>
+    </div>
+  </div>
+  </button>
+    <button class="map-point" style="top: 278px; left: 342px">
+  <div class="content">
+    <div class="centered-y">
+      <h2><font face="hzydx">蓝色海洋环境保护协会</font></h2>
+      <p><font face="hyxdx">在深圳市，将海洋环保的意识与理念传送到社会的各个阶层，推动全国沿海自然生态环境保护的管理、科学研究、海洋环境污染防止与治理。为实现我国沿海海洋生物资源的可持续发展做出了贡献。<br>http://www.szboca.org/
+</font>
+</p>
+    </div>
+  </div>
+  </button>
+   <button class="map-point" style="top: 350px; left:675px">
+  <div class="content">
+    <div class="centered-y">
+      <h2><font face="hzydx">WildAid</font></h2>
+      <p><font face="hyxdx">
+野生救援WildAid是在美国注册的非营利非政府的国际环保组织。<br>使命是取缔针对濒危野生动物的非法贸易和缓解气候变化。<br>没有买卖，就没有杀害！<br>https://wildaid.org
+</font></p>
+    </div>
+  </div>
+  </button>
+   <button class="map-point" style="top: 135px; left:150px">
+  <div class="content">
+    <div class="centered-y">
+      <h2><font face="hzydx">国际捕鲸委员会</font></h2>
+      <p><font face="hyxdx">
+国际捕鲸委员会(IWC)是1946年12月2日《国际捕鲸公约》在华盛顿成立国际捕鲸管制机构。<br>总部设于英国，剑桥会长与副会长的任期为3年，委员会年会通常於每年5、6月间召开。<br>https://iwc.int/home
+</font></p>
+    </div>
+  </div>
+  </button>
+    <button class="map-point" style="top: 248px; left: 322px">
+  <div class="content">
+    <div class="centered-y">
+      <h2><font face="hzydx">中国鲸类保护联盟</font></h2>
+      <p><font face="hyxdx">
+鲸类保护联盟由大陆、美国、英国、台湾和香港的8家非营利机构组成。<br>
+是致力于让公众了解圈养鲸豚的生存境况和相关影响的非营利组织。
+<br><br>https://weibo.com/ChinaCetacean
+</font></p>
+    </div>
+  </div>
+  </button>
+  </div>
+<img id="tt" title="海洋保护组织介绍" src="img/地球.png" width="782" height="643">
+<a href="about/we r here.html">
+<img class=" here" id="bengda" src="img/按钮1.png" onMouseOver="this.src='img/按钮2.png'" onMouseOut="this.src='img/按钮1.png'" width="159" height="57" ></a>
+</div>
+<div id="footer">
+<a href="#" onclick="forwardVideo1()"><i class="fa fa-weibo" ></i> 转发微博</a>&nbsp;&nbsp;&nbsp;
+ <a href="#" onclick="forwardVideo2()"><i class="fa fa-qq" ></i> 转发QQ
+</a>&nbsp;&nbsp;&nbsp;
+
+
+
+<a href="#" onclick="AddFavorite(window.location,document.title)"  rel="sidebar"><i class="fa fa-star-o" aria-hidden="true"></i> 加入收藏</a>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-commenting-o" aria-hidden="true"></i><a href="about/we r here.html"> 留言板</a></div>
+</div>
+</div>
+
+
+</div>
+
+<div class="dian">
+<ul>
+	<li class='da'></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</div>
+
+<pre name="code" class="javascript">
+<script type="text/javascript">  
+        function forwardVideo1(){  
+            url='BitBlue.html';  
+            imgPath='';  
+            window.location.href='http://service.weibo.com/share/share.php?title='+encodeURIComponent(document.title)+'，一个关于海洋生物保护的网站。（๑ˊ꒳​ˋ๑）'+'&url='+encodeURIComponent(url)+'&pic='+encodeURIComponent(imgPath);  
+			
+			
+        }  
+</script>   </pre>
+<pre name="code" class="javascript">
+<script type="text/javascript">  
+        function forwardVideo2(){  
+		title="BitBlue";
+            url='BitBlue.html';  
+            imgPath='';  
+            window.location.href='http://connect.qq.com/widget/shareqq/index.html?url= BitBlue.html &sharesource=qzone&title=你的分享标题&pics=你的分享图片地址&summary=你的分享描述&desc=BitBlue,一个关于海洋生物保护的网站。（๑ˊ꒳​ˋ๑）' 
+			
+			
+        }  
+</script>   </pre>
+<script src="js/txt.wav.min.js"></script>
+<script src="js/wow.js"></script>	<script src="js/p3-jquery.logosDistort.min.js"></script>
+	<script src="js/p3-jquery.particleground.min.js"></script>
+	<script>
+	    var options = {
+	        effectWeight: 1.5,
+	        outerBuffer: 1.30,
+	        elementDepth: 100,
+	        smoothingMultiplier: 1.5,
+	        directions: [ 1, 1, -1, 1, 1, 1, 1, 1 ]
+	    };
+	    $("#p3").logosDistort(options);
+
+
+         new WOW().init();
+		  
+		  /* $(body).mousewheel({
+			      scrollBar: true,    
+				  afterRender: function(){        
+				  wow = new WOW({            
+				  animateClass: 'animated',         
+				  });        
+				  wow.init(); 
+		}});*/
+
+		   
+    if (navigator.userAgent.indexOf('MSIE') >= 0){
+        document.getElementById("videoDiv").innerHTML='<embed src="protectsea.mp4" autostart="true" loop="true" width="340" height="255" >';
+    }
+	
+	/*$("#tt").mouseover(function() {
+       showMsg('海洋保护组织介绍','bottom'); 
+    });*/
+	
+		$("#tt").click(function(){
+			showMsg('海洋保护组织介绍','bottom');
+		});
+		
+		$("#BB").click(function(){
+			showMsg('-真高兴你发现了这个-','center');
+		});
+		
+		$("#whale").click(function(){
+			showMsg('笑得很温柔的蓝鱼','bottom');
+		});
+		$("#js").click(function(){
+			showMsg('鲸鲨是最大的鱼类！','bottom');
+		});
+		$("#ywl").click(function(){
+			showMsg('有着黄金比例的鹦鹉螺','bottom');
+		});
+		$("#jl").click(function(){
+			showMsg('鲸落','bottom');
+		});
+		
+/*		var a,b,c,d;
+
+    d=$('#bengd').offset().top;
+    a=eval(d + offset);
+    b=$(window).scrollTop(); 
+    c=$(window).height();
+    if(b+c>a){
+    $('#bengda').addClass(" animated swing");
+    }
+*/
+
+
+document.onkeydown=function(event){
+var e = event || window.event || arguments.callee.caller.arguments[0];
+if(e && e.keyCode==38 ){//('38=上键，37=左键');
+
+}
+if(e && e.keyCode==40 ){//('40=下键，39=右键');
+
+
+}
+}; 
+
+/* function up(){ var url = document.URL; var curPage = url.match(/[\d]+(?=\.html)/); curPage = parseInt(curPage); var pageno=curPage-1; if(pageno==0){ alert("当前已经是第一页!"); ... 展开
+var pageno=curPage+1;
+     if(curPage==4){
+         alert("当前已经是最后一页!");
+         return false;
+     }*/
+	
+ </script>
+
+</body>
+<!--<script>
+var c =document.getElementById("fly");
+var ctx=c.getContext("2d");
+var jing= new Image();
+    jing.src="img/jing.png";
+	jing.onload = Swim;
+	
+function Swim(){
+	ctx.drawImage(jing,)-->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
